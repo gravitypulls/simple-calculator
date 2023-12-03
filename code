@@ -1,0 +1,138 @@
+#include <stdio.h>
+
+int main(){
+    
+    float number1, number2, number3, result;
+    char op1, op2;
+    
+    printf("Input Ekspresi Dari Tiga Buah Variabel : ");
+    scanf("%f %c %f %c %f", &number1, &op1, &number2, &op2, &number3);
+
+    if (op1 == '*')
+    {
+        switch (op2)
+        {
+        case '*':
+            result = number1 * number2 * number3;
+            break;
+        case '/':
+            if (number3 == 0)
+            {
+                printf("Can't divide by 0");
+                return 0;
+            }
+            else
+            {
+                result = number1 * number2 / number3;
+            }
+            break;
+        case '+':
+            result = number1 * number2 + number3;
+            break;
+        case '-':
+            result = number1 * number2 - number3;
+            break;
+
+        default:
+            break;
+        }
+    }
+    else if (op1 == '/')
+    {
+        if (number2 == 0)
+        {
+            printf("Can't divide by 0");
+            return 0;
+        }
+        else
+        {
+            switch (op2)
+            {
+            case '*':
+                result = number1 / number2 * number3;
+                break;
+            case '/':
+                if (number3 == 0)
+                {
+                    printf("Can't divide by 0");
+                    return 0;
+                }
+                else
+                {
+                    result = number1 / number2 / number3;
+                }
+                break;
+            case '+':
+                result = number1 / number2 + number3;
+                break;
+            case '-':
+                result = number1 / number2 - number3;
+                break;
+
+            default:
+                break;
+            }
+        }
+    }
+    else if (op1 == '+')
+    {
+        switch (op2)
+        {
+        case '*':
+            result = number1 + (number2 * number3);
+            break;
+        case '/':
+            if (number3 == 0)
+            {
+                printf("Can't divide by 0");
+                return 0;
+            }
+            else
+            {
+                result = number1 + (number2 / number3);
+            }
+            break;
+        case '+':
+            result = number1 + number2 + number3;
+            break;
+        case '-':
+            result = number1 + number2 - number3;
+            break;
+
+        default:
+            break;
+        }
+    }
+    else if (op1 == '-')
+    {
+        switch (op2)
+        {
+        case '*':
+            result = number1 - (number2 *number3);
+            break;
+        case '/':
+            if (number3== 0)
+            {
+                printf("Can't divide by 0");
+                return 0;
+            }
+            else
+            {
+                result = number1 - (number2 / number3);
+            }
+            break;
+        case '+':
+            result = number1 - number2 + number3;
+            break;
+        case '-':
+           result = number1 - number2 - number3;
+            break;
+
+        default:
+            break;
+        }
+    }
+
+    printf("Hasil %.2f %c %.2f %c %.2f = %.2f\n", number1, op1, number2, op2, number3, result);
+    return 0;
+}
